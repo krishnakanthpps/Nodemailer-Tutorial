@@ -14,8 +14,8 @@ app.use(cors({ origin: "*" }));
 app.use("/public", express.static(process.cwd() + "/public")); //make public static
 
 const transporter = nodemailer.createTransport({
-  host: process.env.PROVIDER, //replace with your email provider
-  port: process.env.PORT,
+  host: "smtp.zoho.com, //replace with your email provider
+  port: 465,
   secure true,
   auth: {
     user: process.env.EMAIL,
