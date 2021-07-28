@@ -14,12 +14,14 @@ app.use(cors({ origin: "*" }));
 app.use("/public", express.static(process.cwd() + "/public")); //make public static
 
 const transporter = nodemailer.createTransport({
-  service: "hotmail",
+  host: process.env.PROVIDER, //replace with your email provider
+  port: process.env.PORT,
   auth: {
     user: process.env.EMAIL,
     pass: process.env.PASS,
   },
 });
+
 
 // verify connection configuration
 transporter.verify(function (error, success) {
